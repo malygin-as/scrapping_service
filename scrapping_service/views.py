@@ -5,4 +5,4 @@ def index(request):
     date = datetime.datetime.now().date()
     name = 'Dave'
     my_dict = {'date': date, 'name': name}
-    return render(request, 'index.html', my_dict)
+    return render(request, 'base.html', my_dict)

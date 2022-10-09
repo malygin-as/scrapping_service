@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %} Index {% endblock title %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+    <form method="get" action="">
+        <div class="form-control">
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Отобрать</button>
+    </div>
+ </form>
+    </div>
+</div>
+
+    {% for obj in object_list %}
+
+    <div class="card my-3">
+      <h3 class="card-header"><a href="{{obj.url}}">{{obj.title}} </a></h3>
+      <div class="card-body">
+        <h5 class="card-title">{{obj.company}} - {{obj.salary}}</h5>
+        <p class="card-text">{{obj.description}}</p>
+          <p>{{ obj.city.name }} {{ obj.codelang.name }} </p>
+          <small>{{ obj.timestamp|date:"d-M-y" }}</small>
+      </div>
+    </div>
+    {% empty %}
+    <br>
+    <br>
+    <div class="row">
+            <div class="col-md-6 mx-auto">
+            <h3> Пусто! </h3>
+            </div>
+        </div>
+    {% endfor%}
+{% endblock %}
