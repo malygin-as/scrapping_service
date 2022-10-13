@@ -58,3 +58,14 @@ class Vacancy(models.Model):
 
     def __str__(self):
         return self.title
+
+class Error(models.Model):
+    timestamp = models.DateField(auto_now_add=True)
+    data = models.JSONField()
+
+    class Meta:
+        verbose_name = 'Ошибка'
+        verbose_name_plural = 'Ошибки'
+
+    def __str__(self):
+        return self.timestamp
